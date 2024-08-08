@@ -1,0 +1,36 @@
+<!-- <div class="user-list-container">
+      <input matInput placeholder="Search by ID" (input)="onSearch($event)">
+    <div *ngFor="let user of users$ | async" (click)="onSelectUser(user.id)">
+      <mat-card>
+        <img mat-card-avatar [src]="user.avatar">
+        <mat-card-title>{{ user.first_name }} {{ user.last_name }}</mat-card-title>
+      </mat-card>
+    </div>
+    <mat-paginator [length]="totalUsers" [pageSize]="6" (page)="onPageChange($event)"></mat-paginator>
+  </div> 
+  
+ -->
+
+ <div class="container mt-3 user-list-container">
+  <div class="row mb-3">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Search by ID" (input)="onSearch($event)">
+    </div>
+  </div>
+  <div class="row">
+    <div *ngFor="let user of users$ | async" class="col-12 col-md-6 col-lg-4 mb-3" (click)="onSelectUser(user.id)">
+      <div class="card">
+        <img [src]="user.avatar" alt="{{ user.first_name }} {{ user.last_name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-paginator [length]="totalUsers" [pageSize]="6" (page)="onPageChange($event)"></mat-paginator>
+    </div>
+  </div>
+</div>
+

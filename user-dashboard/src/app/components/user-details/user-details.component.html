@@ -1,0 +1,14 @@
+<div *ngIf="user$ | async as user; else loading">
+    <mat-card>
+      <img mat-card-avatar [src]="user.avatar">
+      <mat-card-title>{{ user.first_name }} {{ user.last_name }}</mat-card-title>
+      <mat-card-content>
+        <p>Email: {{ user.email }}</p>
+      </mat-card-content>
+    </mat-card>
+    <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+  </div>
+  <ng-template #loading>
+    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-clip-rotate"></ngx-spinner>
+  </ng-template>
+  
